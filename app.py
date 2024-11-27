@@ -132,32 +132,7 @@ st.set_page_config(page_title="ATS Resume EXpert")
 icon("📄")
 
 st.header("ATS Tracking System",divider="rainbow", anchor=False)
-if "selected_model" not in st.session_state:
-    st.session_state.selected_model = None
 
-# Define model details
-models = {
-    "gemma-7b-it": {"name": "Gemma-7b-it", "tokens": 8192, "developer": "Google"},
-    "llama2-70b-4096": {"name": "LLaMA2-70b-chat", "tokens": 4096, "developer": "Meta"},
-    "llama3-70b-8192": {"name": "LLaMA3-70b-8192", "tokens": 8192, "developer": "Meta"},
-    "llama3-8b-8192": {"name": "LLaMA3-8b-8192", "tokens": 8192, "developer": "Meta"},
-    "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
-}
-# Layout for model selection and max_tokens slider
-col1, col2 = st.columns(2)
-
-with col1:
-    model_option = st.selectbox(
-        "Choose a model:",
-        options=list(models.keys()),
-        format_func=lambda x: models[x]["name"],
-        index=4  # Default to mixtral
-    )
-
-# Detect model change and clear chat history if model has changed
-if st.session_state.selected_model != model_option:
-    st.session_state.messages = []
-    st.session_state.selected_model = model_option
 
 role = st.text_input("**What's the Job Role?**",value='Machine Learning Engineer')
 
