@@ -1,0 +1,9 @@
+# streamlit
+# python-dotenv
+# pdf2image
+#  bases64
+# os
+# io
+# PIL
+pdf2image
+groq
